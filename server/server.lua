@@ -22,6 +22,7 @@ RegisterNetEvent("wonder_storage:SetPinCode", function(pin, stash)
 end)
 
 lib.callback.register("wonder_storage:checkpin", function(source, stash)
+    local pin
     MySQL.Async.fetchAll("SELECT pincode FROM wonder_storage WHERE stash = @stash", { ['@stash'] = stash }, 
     function(result)
         pin = result[1].pincode
