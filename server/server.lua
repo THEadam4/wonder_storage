@@ -1,3 +1,9 @@
+if Config.Framework == "ESX" then
+    ESX = exports["es_extended"]:getSharedObject()
+elseif Config.Framework == "QBCore" then
+    QBCore = exports['qb-core']:GetCoreObject()
+end
+
 RegisterNetEvent("wonder_storage:registerStash", function(stash, label, slots, weight)
     exports.ox_inventory:RegisterStash(stash, label, slots, weight)
 end)
@@ -25,13 +31,19 @@ lib.callback.register("wonder_storage:checkpin", function(source, stash)
 end)
 
 lib.callback.register("wonder_storage:checkowner", function(source)
-    local identifier = GetPlayerIdentifierByType(source, 'license')
+    local identifier
+    if Config.Framework == "ESX" then
+        local xPlayer = ESX.GetPlayerFromId(source)
+        identifier = xPlayer.identifier
+    elseif Config.Framework == "QBCore" then
+        identifier = QBCore.Functions.GetIdentifier(source)
+    end
     return identifier
 end)
 
 function SendLog(message)
-    if Sv_config.Webhook == "WEBHOOK_HERE" then
-        print("Wonder Storage - No webhook set")
+    if Sv_config.Webhook == "WEBHOOOK_HERE" then
+        print("No webhook set")
         return
     else
         local embed = {

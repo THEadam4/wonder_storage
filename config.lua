@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Framework = "ESX" -- ESX/QBCore
+
 Config.Locale = 'en' -- en/cs
 
 Config.Stashes = {
@@ -9,7 +11,7 @@ Config.Stashes = {
         labelChange = "Change pin", -- Label for target
         slots = 20, -- Slots for stash
         weight = 50000, -- Slots for stash
-        owner = "license:b4d422909eb8579b9e7de292262a15c5096531b1", -- Needs to by license for standalone. But if you want to configure it for your framework, change it in server.lua
+        owner = "char1:b4d422909eb8579b9e7de292262a15c5096531b1", -- Char identifier for owner to access Change PIN target
     },
     -- Add more here
 }
