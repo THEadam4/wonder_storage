@@ -5,7 +5,7 @@ Config.Framework = "ESX" -- ESX/QBCore
 Config.Locale = 'en' -- en/cs
 
 Config.Stashes = {
-    ["stash1"] = { -- Needs to be unique, if you make 2 same, it will create 2 identic stashes
+    ["stash1"] = { -- Needs to be unique, if you make 2 same, it will create 2 identical stashes
         coords = vec3(445.6496, -979.3688, 30.6328), -- Coords for target
         label = "Storage", -- Label for target and stash
         labelChange = "Change pin", -- Label for target
